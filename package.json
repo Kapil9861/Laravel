@@ -1,0 +1,21 @@
+{
+  "name": "laravel",
+  "version": "1.0.0",
+  "description": "This is going to be my first project in the laravel learnt and executed from Traversy Media and like copy cat(Not considered good doing it)\r Note: All informations during the development of this project also will be here",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:css && npm run build:js",
+  "watch": "npm run watch:css & npm run watch:js",
+  "build:css": "npx tailwindcss -i ./input.css -o ./css/main.css",
+  "watch:css": "npx tailwindcss -i ./input.css -o ./css/main.css --watch",
+  "build:js": "npm run production",
+  "watch:js": "npm run watch-poll",
+  "production": "npm run production:js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  }
+}
