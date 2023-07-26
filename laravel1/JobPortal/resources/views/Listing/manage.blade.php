@@ -48,7 +48,7 @@
             <tr class="border-gray-300">
                 <td class="px-4 py-8border-t border-b border-grey-300 text-lg">
                     <p>Yet To Make Listings <br>
-                        <a href="/Listing/create">
+                        <a href="/listing/create">
                         <i class="fa-solid fa-pen-fancy">Make Listings</i>
                         </a>
                         </p>

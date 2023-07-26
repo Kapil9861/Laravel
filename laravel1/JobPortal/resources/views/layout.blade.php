@@ -40,6 +40,11 @@
                     </span>
                 </li>
                 <li>
+                    <span class="font uppercase">
+                        <a href="{{route('all.permission')}}"> All Permission</a>
+                    </span>
+                </li>
+                <li>
                     <a href="/listing/manage" class="hover:text-laravel"
                         ><i class="fa-solid fa-gear"></i>
                         Manage Listings</a

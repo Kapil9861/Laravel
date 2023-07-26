@@ -4,6 +4,7 @@ use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\UserController;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\Admin\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,7 @@ Route::get('/register',[\App\Http\Controllers\UserController::class,'create'])->
 Route::post('/users',[UserController::class,'store']);
 
 //Show login form the name is provided such that the  middleware understands which name to follow
+//as the route understand the path inside the name
 Route::get('/login',[UserController::class,'login'])->middleware('guest')->name('login');
 
 //Login User
@@ -58,3 +60,7 @@ Route::get('/listing/manage',[ListingController::class,'manage'])->middleware('a
 
 //logout for user
 Route::post('/logout',[UserController::class,'logout'])->middleware('auth');
+
+//Permissions
+Route::get('/all/permission',[RoleController::class,'AllPermission'])->name('all.permission');
+//name-> must be defined in the to call it in the route('')
