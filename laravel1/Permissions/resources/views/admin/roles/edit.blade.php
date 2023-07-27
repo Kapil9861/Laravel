@@ -26,7 +26,7 @@
                           
                         </div>
                       </form>
-                      <div class="mt-6 p-2">
+                      <div class="mt-6 p-2 bg-slate-100">
                           @if($role->permissions)
                           <h2 class="text-2xl font-semibold">Role Permissions</h2>
                           <div class="mt-4 p-2">

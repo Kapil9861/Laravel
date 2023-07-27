@@ -18,7 +18,9 @@
                     <a href="{{route('admin.index')}}">Admin</a>
                     @endrole  <br>
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged in!') }} <br> <br>
+
+                    <a href="{{route('logout')}}">Logout</a>
                 </div>
             </div>
         </div>

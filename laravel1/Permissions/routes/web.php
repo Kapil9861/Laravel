@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\admin\AdminRoleController;
 use App\Http\Controllers\admin\AdminPermissionController;
 
@@ -23,11 +24,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/logout',[UserController::class,'logout'])->name('users.logout');
 
 //In the middleware(['auth','role:admin'])===here the role will come from the kernel that we set up before
 //Modify this into ::Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->middleware(['auth','role:admin'])->name('admin.index');
 Route::middleware(['auth','role:admin'])->name('admin.')->// can be here :name('admin.')//('admin.index')
 prefix('admin')->group(function(){// The prefix works for every route so be careful
+    Route::post('/permissions/{permission}/roles',[AdminPermissionController::class,'assignRole'])->name('permissions.roles');
+    Route::delete('/permissions/{permission}/roles/{role}',[AdminPermissionController::class,'remove'])->name('permissions.roles.remove');
     Route::delete('/roles/{role}/permissions/{permission}',[AdminRoleController::class,'destroyPermission'])->name('roles.permissions.revoke');
     Route::post('roles/{role}/permissions',[AdminRoleController::class,'givePermission'])->name('roles.addpermissions');
     Route::get('/',[HomeController::class,'admin'])->name('index');
@@ -47,4 +51,12 @@ prefix('admin')->group(function(){// The prefix works for every route so be care
     //roles one
     //    Route::resource('/permissions',AdminPermissionController::class); //The project is designed to handle the resource for controlling index and
 //The route is designed in such a way that it should have handled the CRUD functionalities easily but i don't know what i have done incorrectly
+    Route::get('/users',[UserController::class,'index'])->name('users.index');
+    Route::get('/users/{user}',[UserController::class,'show'])->name('users.show');
+    Route::delete('/users/{user}',[UserController::class,'destroy'])->name('users.destroy');
+    Route::post('/users/{user}/roles',[UserController::Class,'assignRole'])->name('users.roles');
+    Route::delete('/users/{user}/roles/{role}',[UserController::Class,'removeRole'])->name('users.roles.remove');
+    Route::post('/users/{user}/permissions',[UserController::Class,'assignPermission'])->name('users.permissions');
+    Route::delete('/users/{user}/permissions/{permission}',[UserController::Class,'removePermission'])->name('user.permissions.revoke');
+
 });
