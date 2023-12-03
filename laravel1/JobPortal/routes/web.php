@@ -62,5 +62,5 @@ Route::get('/listing/manage',[ListingController::class,'manage'])->middleware('a
 Route::post('/logout',[UserController::class,'logout'])->middleware('auth');
 
 //Permissions
-Route::get('/all/permission',[RoleController::class,'AllPermission'])->name('all.permission');
+// Route::get('/all/permission',[RoleController::class,'AllPermission'])->name('all.permission');
 //name-> must be defined in the to call it in the route('')

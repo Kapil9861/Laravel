@@ -48,8 +48,8 @@ class User extends Authenticatable
 
     //Relationship with the listing= user can have many listings
     public function listing(){
-        $role=Role::create(['name'=>'company']);
-        $permission->assignRole($role);
+        // $role=Role::create(['name'=>'company']);
+        // $permission->assignRole($role);
         //OR 
         // $permission=Permission::create(['name'=>'edit listings']);
         // $role->givePermissionTo($permission);

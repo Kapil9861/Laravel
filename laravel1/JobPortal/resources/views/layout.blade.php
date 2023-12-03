@@ -39,11 +39,11 @@
                         Welcome {{auth()->user()->name}}
                     </span>
                 </li>
-                <li>
+                <!-- <li>
                     <span class="font uppercase">
-                        <a href="{{route('all.permission')}}"> All Permission</a>
+                        <a href=""> All Permission</a>// route is all.permission
                     </span>
-                </li>
+                </li> -->
                 <li>
                     <a href="/listing/manage" class="hover:text-laravel"
                         ><i class="fa-solid fa-gear"></i>
