@@ -1,0 +1,25 @@
+first added it to fillable inside the model
+Then placed the validation or move the image to the certain location:
+if($request->hasfile('logo')){
+    $formfields['logo']=$request->file('logo')->store('logos','public');
+}
+//This one is completely optional{
+CHANGED THE     'default' => env('FILESYSTEM_DISK', 'public'),
+ +++++ second parameter from the local to public 
+}
+
+breakdown of it: first the hasfile checks if it has file from the request 
+then inside the formfield the file is stored in a seperate location HERE:
+ LOGOS INSIDE PUBLIC folder
+
+ Also added the section in the migration file
+ $table->string('logo')->nullable();
+ After this must rerun the migration file for updating the table with the logo field
+Also for accessing the storage folder inside the public folder
+Artisan Command:
+php artisan storage:link
+
+displayed the image in website:
+changed the src to the filename
+with       src="{{$listing->logo ? asset('storage/'.$listing->logo) : asset('images/no-image.png')}}"
+using ternary operation

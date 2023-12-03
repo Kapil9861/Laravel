@@ -1,0 +1,20 @@
+1: we need to handle the database
+=In the migration in the listings table:
+=we have to create another field for the user id for knowing which user created the id
+
+$table->foreignId('user_id')->constrained()->onDelete('cascade');
+
+This means that when the user is deleted or removed alll the posting made
+by the user is also deleted
+in the listing must be defined that the listing belongs to the User
+public function toWhichitBelongs(){
+    return $this->belongsTo(User::class,'user_id');
+}
+
+Also should be done in the user to store the listings done by them
+public function listing(){
+    return $this->hasMany(Listing::class,'user_id');
+}
+
+Basically =Users will have many listings and the listing can be created by user so belongs to user
+ Also again seeded the database again with the user id being fixed 

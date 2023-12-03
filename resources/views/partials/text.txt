@@ -1,0 +1,5 @@
+The partials are the files used only sometimes  and as per
+naming convention in php it always starts with the
+_ like
+_hero
+_search.blade.php
